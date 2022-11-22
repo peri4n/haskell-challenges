@@ -1,0 +1,67 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e81f3b70f0f58d2d7771963b98f6397757a75f6a9c0e50199bc89e67b6673326
+
+name:           99problems
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/peri4n/99problems#readme>
+homepage:       https://github.com/peri4n/99problems#readme
+bug-reports:    https://github.com/peri4n/99problems/issues
+author:         Fabian Bull
+maintainer:     bull.fabian@googlemail.com
+copyright:      GPG
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/peri4n/99problems
+
+library
+  exposed-modules:
+      Lib
+      Problems.Problem1
+      Problems.Problem2
+  other-modules:
+      Paths_99problems
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable 99problems-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_99problems
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      99problems
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite 99problems-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Problems.Problem1Spec
+      Problems.Problem2Spec
+      Paths_99problems
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      99problems
+    , base >=4.7 && <5
+    , hspec
+  default-language: Haskell2010
