@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7a26adc44d5ef5a948488dc33016998ed328300f40c0338945c37fc44c5ad984
+-- hash: 2c41b4ee8e585143f6d73ffbfcae1b52b575314141b0c44eb062f61f520f5404
 
 name:           aoc
 version:        0.1.0.0
@@ -28,6 +28,9 @@ source-repository head
 library
   exposed-modules:
       AdventOfCode.Day1
+      AdventOfCode.Day2
+      AdventOfCode.Day3
+      AdventOfCode.Day4
   other-modules:
       Paths_aoc
   hs-source-dirs:

@@ -1,6 +1,7 @@
 module Main where
 
 import AdventOfCode.Day1 as Day1
+import AdventOfCode.Day2 as Day2
 import System.Environment
 
 main :: IO ()
