@@ -8,7 +8,7 @@ numbers = do
   return $ map read (lines content)
 
 combinations :: Int -> [Int] -> [[Int]]
-combinations k xs = filter ((k ==) . length . nub) $ mapM (const xs) [1 .. k]
+combinations k xs = filter ((k ==) . length) $ mapM (const xs) [1 .. k]
 
 solve :: Int -> IO Int
 solve k = do

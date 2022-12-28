@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a6ac0ed224056c2f6658548c72dd6c5ce29d32cd113008e9e0e5283680954dc3
+-- hash: 8bd0d23db32cbe562976c847d417a8e5a533d2ecd0b224550a9a29d657e9e47f
 
 name:           aoc
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      AdventOfCode.Common.Points
       AdventOfCode.Year2015.Day1
       AdventOfCode.Year2020.Day1
       AdventOfCode.Year2020.Day2
@@ -58,12 +59,14 @@ library
     , regex-applicative
     , split
     , text
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite aoc-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      AdventOfCode.Common.PointsSpec
       AdventOfCode.Year2015.Solutions
       AdventOfCode.Year2020.Solutions
       AdventOfCode.Year2021.Solutions
@@ -82,4 +85,5 @@ test-suite aoc-test
     , regex-applicative
     , split
     , text
+    , unordered-containers
   default-language: Haskell2010

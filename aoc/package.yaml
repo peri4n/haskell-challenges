@@ -22,6 +22,7 @@ description:         Collection of christmas puzzles
 dependencies:
 - base >= 4.7 && < 5
 - containers
+- unordered-containers
 - split
 - regex-applicative
 - megaparsec
