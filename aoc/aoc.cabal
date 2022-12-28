@@ -1,0 +1,85 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a6ac0ed224056c2f6658548c72dd6c5ce29d32cd113008e9e0e5283680954dc3
+
+name:           aoc
+version:        0.1.0.0
+description:    Collection of christmas puzzles
+homepage:       https://github.com/peri4n/haskell-challenges#readme
+bug-reports:    https://github.com/peri4n/haskell-challenges/issues
+author:         Fabian Bull
+maintainer:     spam+aoc@fbull.de
+copyright:      2022 Fabian Bull
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/peri4n/haskell-challenges
+
+library
+  exposed-modules:
+      AdventOfCode.Year2015.Day1
+      AdventOfCode.Year2020.Day1
+      AdventOfCode.Year2020.Day2
+      AdventOfCode.Year2020.Day3
+      AdventOfCode.Year2020.Day4
+      AdventOfCode.Year2021.Day1
+      AdventOfCode.Year2021.Day2
+      AdventOfCode.Year2021.Day4
+      AdventOfCode.Year2021.Day5
+      AdventOfCode.Year2021.Day6
+      AdventOfCode.Year2021.Day7
+      AdventOfCode.Year2021.Day8
+      AdventOfCode.Year2021.Day9
+      AdventOfCode.Year2022.Day1
+      AdventOfCode.Year2022.Day2
+      AdventOfCode.Year2022.Day3
+      AdventOfCode.Year2022.Day4
+      AdventOfCode.Year2022.Day5
+      AdventOfCode.Year2022.Day6
+      AdventOfCode.Year2022.Day7
+  other-modules:
+      Paths_aoc
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , megaparsec
+    , regex-applicative
+    , split
+    , text
+  default-language: Haskell2010
+
+test-suite aoc-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      AdventOfCode.Year2015.Solutions
+      AdventOfCode.Year2020.Solutions
+      AdventOfCode.Year2021.Solutions
+      AdventOfCode.Year2022.Day5.Spec
+      AdventOfCode.Year2022.Solutions
+      Paths_aoc
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , aoc
+    , base >=4.7 && <5
+    , containers
+    , megaparsec
+    , regex-applicative
+    , split
+    , text
+  default-language: Haskell2010
