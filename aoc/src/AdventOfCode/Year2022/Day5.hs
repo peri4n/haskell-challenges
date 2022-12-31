@@ -4,6 +4,8 @@ import qualified Control.Applicative as PS
 import Data.IntMap.Strict as M
 import Data.List as L
 import Data.Maybe
+import Data.Text
+import Data.Text.IO as TIO
 import Data.Void (Void)
 import Text.Megaparsec (Parsec, errorBundlePretty, many, sepBy, try)
 import qualified Text.Megaparsec as P
@@ -12,7 +14,7 @@ import qualified Text.Megaparsec.Char as PC
 import Text.Regex.Applicative ((<|>))
 
 -- Input parsing
-type Parser = Parsec Void String
+type Parser = Parsec Void Text
 
 type Stack = Int
 
@@ -56,7 +58,7 @@ state :: Parser State
 state = do
   cs <- crateLines
   ss <- stackLine
-  let state = M.fromList $ ss `zip` L.map catMaybes (L.transpose cs)
+  let state = M.fromList $ L.zip ss (L.map catMaybes (L.transpose cs))
   return state
 
 type From = Int
@@ -87,16 +89,16 @@ program = do
 type Step = State -> Move -> State
 
 step1 :: Step
-step1 s (count, from, to) = M.adjust (\s -> reverse stax ++ s) to collect
+step1 s (count, from, to) = M.adjust (\s -> L.reverse stax ++ s) to collect
   where
-    stax = take count (fromJust (M.lookup from s))
-    collect = M.adjust (drop count) from s
+    stax = L.take count (fromJust (M.lookup from s))
+    collect = M.adjust (L.drop count) from s
 
 step2 :: Step
 step2 s (count, from, to) = M.adjust (stax ++) to collect
   where
-    stax = take count (fromJust (M.lookup from s))
-    collect = M.adjust (drop count) from s
+    stax = L.take count (fromJust (M.lookup from s))
+    collect = M.adjust (L.drop count) from s
 
 solve :: Step -> Program -> String
 solve step (s, m) = topOfStacks $ L.foldl' step s m
@@ -105,7 +107,7 @@ solve step (s, m) = topOfStacks $ L.foldl' step s m
 
 prog :: IO Program
 prog = do
-  content <- readFile "data/2022/day5.txt"
+  content <- TIO.readFile "data/2022/day5.txt"
   return $ fromJust $ P.parseMaybe program content
 
 solveA :: IO String

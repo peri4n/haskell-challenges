@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8bd0d23db32cbe562976c847d417a8e5a533d2ecd0b224550a9a29d657e9e47f
+-- hash: d7f1afbbe9aa321635cef5e95670fc8f57f3f709e462ab39a18b0a3b053c2cbb
 
 name:           aoc
 version:        0.1.0.0
@@ -48,10 +48,14 @@ library
       AdventOfCode.Year2022.Day5
       AdventOfCode.Year2022.Day6
       AdventOfCode.Year2022.Day7
+      AdventOfCode.Year2022.Day7.Parser
+      AdventOfCode.Year2022.Day7.Types
   other-modules:
       Paths_aoc
   hs-source-dirs:
       src
+  default-extensions:
+      OverloadedStrings
   build-depends:
       base >=4.7 && <5
     , containers
@@ -71,10 +75,13 @@ test-suite aoc-test
       AdventOfCode.Year2020.Solutions
       AdventOfCode.Year2021.Solutions
       AdventOfCode.Year2022.Day5.Spec
+      AdventOfCode.Year2022.Day7.Spec
       AdventOfCode.Year2022.Solutions
       Paths_aoc
   hs-source-dirs:
       test
+  default-extensions:
+      OverloadedStrings
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       HUnit
