@@ -7,6 +7,7 @@ import AdventOfCode.Year2022.Day4 as Day4
 import AdventOfCode.Year2022.Day5 as Day5
 import AdventOfCode.Year2022.Day6 as Day6
 import AdventOfCode.Year2022.Day7 as Day7
+import AdventOfCode.Year2022.Day8 as Day8
 import Test.HUnit
 import AdventOfCode.Year2022.Day5.Spec (day5Spec)
 import AdventOfCode.Year2022.Day7.Spec (day7Spec)
@@ -39,6 +40,10 @@ problem6b = TestCase (Day6.solveB >>= assertEqual "Solution to problem 6b" 3697)
 problem7a = TestCase (Day7.solveA >>= assertEqual "Solution to problem 7a" 1084134)
 
 problem7b = TestCase (Day7.solveB >>= assertEqual "Solution to problem 7b" 6183184)
+
+problem8a = TestCase (Day8.solveA >>= assertEqual "Solution to problem 8a" 1830)
+
+problem8b = TestCase (Day8.solveB >>= assertEqual "Solution to problem 8b" 385112)
 
 solutions2022 :: Test
 solutions2022 =
